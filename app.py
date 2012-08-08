@@ -23,8 +23,8 @@ def home():
 @app.route('/networks')
 def get_networks():
     networks = [
-        ['abc', 34.23, 35.55],
-        ['def', 34.19, 34.99],
+        ['abc', 32.0833, 34.8000],
+        ['def', 32.0770, 34.8060],
     ]
     return jsonify(networks=networks)
 

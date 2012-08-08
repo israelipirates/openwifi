@@ -1,6 +1,6 @@
 $(document).ready(function() {
   init();
-  add_marker('hai!', 32.08, 34.80);
+  update_networks();
 });
 
 init = function() {
@@ -28,5 +28,13 @@ add_marker = function(title, lat, long) {
     },
     draggable: false,
     map: map
+  });
+};
+
+update_networks = function() {
+  $.get('/networks', function(res) {
+    $.each(res['networks'], function(index, val) {
+      add_marker(val[0], val[1], val[2]);
+    });
   });
 };
