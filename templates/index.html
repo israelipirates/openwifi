@@ -35,18 +35,20 @@
 <body lang="en" onload="initialize()">
   {% block page_content %}
   <div id="main" class="container" role="main">
-    <h1>ויפי-פתוח</h1>
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="#">ראשי</a>
-      </li>
-      <li><a href="#">מפה</a></li>
-      <li><a href="#">חיפוש</a></li>
-      <li><a href="#">הוספה</a></li>
-      <li><a href="#">אודות</a></li>
-    </ul>
-    <div id="map_canvas" style="width:940px; height:600px"></div>
-    <p>פרוייקט זה מוגש בחסות <a href="">מפלגת הפיראטים הישראלית</a>.</p>
+    <div class="span8 offset2">
+      <h1>ויפי-פתוח</h1>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#">ראשי</a>
+        </li>
+        <li><a href="#">מפה</a></li>
+        <li><a href="#">חיפוש</a></li>
+        <li><a href="#">הוספה</a></li>
+        <li><a href="#">אודות</a></li>
+      </ul>
+      <div id="map_canvas" style="width:620px; height:300px"></div>
+      <p>פרוייקט זה מוגש בחסות <a href="">מפלגת הפיראטים הישראלית</a>.</p>
+    </div>
   </div>
   {% endblock %}  
 </body>
