@@ -18,6 +18,5 @@ Deployment
 OpenWifi is built to be deployed on the Heroku platform. Follow the usual steps for Heroku deployment:
 
  1. `heroku create`
- 2. `git push heroku master`
-
-Note that the Redis add-on is required for persistence.
+ 2. `heroku addons:add redistogo:nano` (`nano` is used for development, use the `mini` plan for persistence)
+ 3. `git push heroku master`
