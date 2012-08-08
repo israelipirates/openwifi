@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 from flask import render_template
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -9,6 +10,15 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('index.html')
+
+
+@app.route('/networks')
+def get_networks():
+    networks = [
+        ['abc', 34.23, 35.55],
+        ['def', 34.19, 34.99],
+    ]
+    return jsonify(networks=networks)
 
 
 @app.route('/robots.txt')
@@ -19,4 +29,4 @@ def robots():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
