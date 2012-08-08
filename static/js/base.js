@@ -34,7 +34,7 @@ add_marker = function(title, lat, long) {
 update_networks = function() {
   $.get('/networks', function(res) {
     $.each(res['networks'], function(index, val) {
-      add_marker(val[0], val[1], val[2]);
+      add_marker.apply(this, val);
     });
   });
 };
