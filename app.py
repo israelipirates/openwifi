@@ -1,10 +1,18 @@
 import os
+import urlparse
 
 from flask import Flask
 from flask import render_template
 from flask import jsonify
 
 app = Flask(__name__)
+
+
+def get_redis_conn():
+    redis_url = os.environ.get('REDISTOGO_URL')
+    if redis_url:
+        url = urlparse.urlparse(redis_url)
+        return url.hostname, url.port, url.password
 
 
 @app.route('/')
