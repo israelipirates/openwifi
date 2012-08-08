@@ -5,6 +5,9 @@ body {
 }
 
 .canvas {
+    margin-top: 15px;
     width:620px;
     height:300px
 }
+
+.modal { display: none; }

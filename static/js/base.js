@@ -1,6 +1,7 @@
 $(document).ready(function() {
   init();
   update_networks();
+  register_clicks();
 });
 
 init = function() {
@@ -36,5 +37,11 @@ update_networks = function() {
     $.each(res['networks'], function(index, val) {
       add_marker.apply(this, val);
     });
+  });
+};
+
+register_clicks = function() {
+  google.maps.event.addListener(map, 'click', function(event) {
+    alert(event.latLng);
   });
 };

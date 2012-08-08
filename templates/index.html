@@ -28,6 +28,7 @@
 
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCcQze6F3ihwXZf-45109RKO9b0o4B83Zc&sensor=true"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="static/js/bootstrap-modal.js"></script>
   <script type="text/javascript" src="static/js/base.js"></script>
 
 </head>
@@ -46,9 +47,55 @@
         <li><a href="#">הוספה</a></li>
         <li><a href="#">אודות</a></li>
       </ul>
+      <button class="btn" data-toggle="modal" href="#add-hotspot-modal">הוספה</button>
       <div id="map_canvas" class="canvas"></div>
       <p>פרוייקט זה מוגש בחסות <a href="http://israelipirates.org.il">מפלגת הפיראטים הישראלית</a>.</p>
     </div>
+  </div>
+
+  <div class="modal" id="add-hotspot-modal">
+    <div class="modal-header">
+      <a class="close" data-dismiss="modal">&times;</a>
+      <h3>הוספת נקודה</h3>
+    </div>
+    <form id="add-tenant-form" class="form-horizontal" action="" method="POST">
+      <div class="modal-body">
+        <fieldset>
+          <div class="control-group">
+            <label class="control-label" for="add-tenant-email">E-mail</label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on">
+                  <i class="icon-envelope"></i>
+                </span>
+                <input id="add-tenant-email" name="email" placeholder="tenant.name@example.com"></input>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="add-tenant-rent">Rent</label>
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on">
+                  <i class="icon-pencil"></i>
+                </span>
+                <div class="input-append">
+                  <input id="add-tenant-rent" name="rent" placeholder="9999" class="input-mini"></input>
+                  <span class="add-on">₪</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="modal-footer">
+        <input type="hidden" name="apt" value=""></input>
+        <input id="add-tenant-send" type="submit" value="Add Tenant" class="btn btn-primary"></input>
+        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+      </div>
+    </form>
   </div>
   {% endblock %}  
 </body>
