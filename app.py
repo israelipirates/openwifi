@@ -24,7 +24,8 @@ def home():
 def get_networks():
     networks = [
         ['abc', 32.0833, 34.8000],
-        ['def', 32.0770, 34.8060],
+        ['def', 32.0800, 34.7960],
+        ['ghi', 32.0840, 34.7930],
     ]
     return jsonify(networks=networks)
 
