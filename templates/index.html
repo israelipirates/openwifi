@@ -58,42 +58,21 @@
       <a class="close" data-dismiss="modal">&times;</a>
       <h3>הוספת נקודה</h3>
     </div>
-    <form id="add-tenant-form" class="form-horizontal" action="" method="POST">
+    <form id="add-hotspot-form" class="form-horizontal" action="" method="POST">
       <div class="modal-body">
         <fieldset>
           <div class="control-group">
-            <label class="control-label" for="add-tenant-email">E-mail</label>
+            <label class="control-label" for="add-hotspot-name">שם הרשת</label>
             <div class="controls">
-              <div class="input-prepend">
-                <span class="add-on">
-                  <i class="icon-envelope"></i>
-                </span>
-                <input id="add-tenant-email" name="email" placeholder="tenant.name@example.com"></input>
-              </div>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label" for="add-tenant-rent">Rent</label>
-            <div class="controls">
-              <div class="input-prepend">
-                <span class="add-on">
-                  <i class="icon-pencil"></i>
-                </span>
-                <div class="input-append">
-                  <input id="add-tenant-rent" name="rent" placeholder="9999" class="input-mini"></input>
-                  <span class="add-on">₪</span>
-                </div>
-              </div>
+              <input id="add-hotspot-name" name="name" placeholder="HotspotName"></input>
             </div>
           </div>
         </fieldset>
       </div>
 
       <div class="modal-footer">
-        <input type="hidden" name="apt" value=""></input>
-        <input id="add-tenant-send" type="submit" value="Add Tenant" class="btn btn-primary"></input>
-        <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+        <input id="add-hotspot-send" type="submit" value="שלח" class="btn btn-primary"></input>
+        <a href="#" class="btn" data-dismiss="modal">ביטול</a>
       </div>
     </form>
   </div>
