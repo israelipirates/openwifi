@@ -42,6 +42,8 @@ update_networks = function() {
 
 register_clicks = function() {
   google.maps.event.addListener(map, 'click', function(event) {
-    alert(event.latLng);
+    $('#add-hotspot-lat').val(event.latLng.lat());
+    $('#add-hotspot-lng').val(event.latLng.lng());
+    $('#add-hotspot-modal').modal('show');
   });
 };

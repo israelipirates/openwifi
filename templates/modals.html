@@ -3,13 +3,37 @@
     <a class="close" data-dismiss="modal">&times;</a>
     <h3>הוספת נקודה</h3>
   </div>
-  <form id="add-hotspot-form" class="form-horizontal" action="" method="POST">
+  <form id="add-hotspot-form" class="form-horizontal" action="/networks/add" method="POST">
     <div class="modal-body">
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="add-hotspot-lat">מיקום קו רוחב</label>
+          <div class="controls">
+            <input id="add-hotspot-lat" name="lat" class="disabled" disabled></input>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="add-hotspot-lng">מיקום קו אורך</label>
+          <div class="controls">
+            <input id="add-hotspot-lng" name="lng" class="disabled" disabled></input>
+          </div>
+        </div>
+      </fieldset>
       <fieldset>
         <div class="control-group">
           <label class="control-label" for="add-hotspot-name">שם הרשת</label>
           <div class="controls">
             <input id="add-hotspot-name" name="name" placeholder="HotspotName"></input>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <div class="control-group">
+          <label class="control-label" for="add-hotspot-password">סיסמת הרשת</label>
+          <div class="controls">
+            <input id="add-hotspot-password" name="password" placeholder="HotspotPassword"></input>
           </div>
         </div>
       </fieldset>

@@ -16,11 +16,12 @@ def _get_conn():
 r = _get_conn()
 
 
-def create(title, lat, lng):
+def create(title, password, lat, lng, *args, **kwargs):
     next_id = r.incr('hotspot_ids')
     dt = datetime.utcnow()
     d = {
         'title': title,
+        'password': password,
         'lat': lat,
         'lng': lng,
         'created': dt.isoformat()

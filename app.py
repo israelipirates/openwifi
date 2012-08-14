@@ -2,7 +2,10 @@ import os
 
 from flask import Flask
 from flask import render_template
+from flask import request
 from flask import jsonify
+
+from models import hotspot
 
 app = Flask(__name__)
 
@@ -25,6 +28,18 @@ def get_networks():
         ['ghi', 32.0840, 34.7930],
     ]
     return jsonify(networks=networks)
+
+
+@app.route('/networks/add', methods=['POST'])
+def add_network():
+    fields = ['lat', 'lng', 'name', 'password']
+    vals = [request.form[k] for k in fields]
+    try:
+        print vals
+        #hotspot.create(*vals)
+    except:
+        return jsonify(res='err')
+    return jsonify(res='ok')
 
 
 @app.route('/robots.txt')
