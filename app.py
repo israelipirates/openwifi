@@ -29,16 +29,18 @@ def about():
 @app.route('/hotspots')
 def get_hotspots():
     hotspots = Hotspot.query.all()
-    return jsonify(hotspots=hotspots)
+    res = [hotspot.serialize() for hotspot in hotspots]
+    return jsonify(hotspots=res)
 
 
 @app.route('/hotspots/add', methods=['POST'])
 def add_hotspot():
     fields = ['ssid', 'password', 'lat', 'lng']
-    vals = [request.form.get(k) for k in fields]
+    vals = dict([(k, request.form.get(k)) for k in fields])
     try:
-        return jsonify(vals=vals)
-        #hotspot.create(*vals)
+        hotspot = Hotspot(**vals)
+        db.session.add(hotspot)
+        db.session.commit()
     except:
         return jsonify(res='err')
     return jsonify(res='ok')

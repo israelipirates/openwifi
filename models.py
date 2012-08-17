@@ -13,7 +13,7 @@ class Hotspot(db.Model):
     created = db.Column(db.Date, default=datetime.now)
     updated = db.Column(db.Date, onupdate=datetime.now)
 
-    def __init__(self, ssid, password, lat, lng):
+    def __init__(self, ssid, password, lat, lng, *args, **kwargs):
         self.ssid = ssid
         self.password = password
         self.lat = lat
@@ -21,3 +21,11 @@ class Hotspot(db.Model):
 
     def __repr__(self):
         return '<Hotspot %r>' % self.ssid
+
+    def serialize(self):
+        return {
+            'ssid': self.ssid,
+            'password': self.password,
+            'lat': self.lat,
+            'lng': self.lng
+        }
