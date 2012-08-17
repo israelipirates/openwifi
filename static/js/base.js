@@ -30,6 +30,12 @@ add_marker = function(ssid, password, lat, lng) {
     draggable: false,
     map: map
   });
+  google.maps.event.addListener(marker, 'click', function() {
+    if (!password) {
+      password = '<none>';
+    }
+    alert('SSID: ' + ssid + ", Password: " + password);
+  });
 };
 
 update_hotspots = function() {
