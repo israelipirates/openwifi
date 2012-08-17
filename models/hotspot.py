@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from app import db
 
 
@@ -7,6 +9,8 @@ class Hotspot(db.Model):
     password = db.Column(db.String(120))
     lat = db.Column(db.Float())
     lng = db.Column(db.Float())
+    created = db.Column(db.Date, default=datetime.now)
+    updated = db.Column(db.Date, onupdate=datetime.now)
 
     def __init__(self, ssid, password, lat, lng):
         self.ssid = ssid
