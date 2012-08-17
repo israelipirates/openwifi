@@ -18,8 +18,8 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/networks')
-def get_networks():
+@app.route('/hotspots')
+def get_hotspots():
     networks = [
         ['abc', 32.0833, 34.8000],
         ['def', 32.0800, 34.7960],
@@ -28,9 +28,9 @@ def get_networks():
     return jsonify(networks=networks)
 
 
-@app.route('/networks/add', methods=['POST'])
+@app.route('/hotspots/add', methods=['POST'])
 def add_network():
-    fields = ['lat', 'lng', 'name', 'password']
+    fields = ['lat', 'lng', 'ssid', 'password']
     vals = [request.form[k] for k in fields]
     try:
         print vals
