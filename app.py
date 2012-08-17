@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, jsonify, redirect, render_template, request, url_for
 from flask_heroku import Heroku
 from os import environ
 
@@ -42,8 +42,8 @@ def add_hotspot():
         db.session.add(hotspot)
         db.session.commit()
     except:
-        return jsonify(res='err')
-    return jsonify(res='ok')
+        pass
+    return redirect(url_for('home'))
 
 
 @app.route('/robots.txt')
