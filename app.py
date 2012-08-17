@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from flask.ext.sqlalchemy import SQLAlchemy
 from flask_heroku import Heroku
 
 app = Flask(__name__)

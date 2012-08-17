@@ -1,29 +1,18 @@
-from datetime import datetime
-import redis
-import urlparse
-
-from os import environ
+from app import db
 
 
-def _get_conn():
-    redis_url = environ.get('REDISTOGO_URL')
-    if redis_url:
-        url = urlparse.urlparse(redis_url)
-        return url.hostname, url.port, url.password
-    r = redis.Redis(db=1)
-    return r
+class Hotspot(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ssid = db.Column(db.String(80))
+    password = db.Column(db.String(120))
+    lat = db.Column(db.Float())
+    lng = db.Column(db.Float())
 
-r = _get_conn()
+    def __init__(self, ssid, password, lat, lng):
+        self.ssid = ssid
+        self.password = password
+        self.lat = lat
+        self.lng = lng
 
-
-def create(title, password, lat, lng, *args, **kwargs):
-    next_id = r.incr('hotspot_ids')
-    dt = datetime.utcnow()
-    d = {
-        'title': title,
-        'password': password,
-        'lat': lat,
-        'lng': lng,
-        'created': dt.isoformat()
-    }
-    r.hmset('hotspot:%d' % next_id, d)
+    def __repr__(self):
+        return '<Hotspot %r>' % self.ssid
