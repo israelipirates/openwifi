@@ -19,10 +19,10 @@ init = function() {
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 };
 
-add_marker = function(title, lat, long) {
+add_marker = function(ssid, password, lat, lng) {
   var marker = new google.maps.Marker({
-    title: title,
-    position: new google.maps.LatLng(lat, long),
+    title: ssid,
+    position: new google.maps.LatLng(lat, lng),
     icon: {
       path: google.maps.SymbolPath.CIRCLE,
       scale: 7
@@ -35,7 +35,12 @@ add_marker = function(title, lat, long) {
 update_hotspots = function() {
   $.get('/hotspots', function(res) {
     $.each(res['hotspots'], function(index, val) {
-      add_marker.apply(this, val);
+      var lat = val['lat'];
+      var lng = val['lng'];
+      var ssid = val['ssid'];
+      var password = val['password'];
+      console.log(ssid, password, lat, lng);
+      add_marker(ssid, password, lat, lng);
     });
   });
 };
