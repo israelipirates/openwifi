@@ -1,6 +1,6 @@
 $(document).ready(function() {
   init();
-  update_networks();
+  update_hotspots();
   register_clicks();
 });
 
@@ -32,9 +32,9 @@ add_marker = function(title, lat, long) {
   });
 };
 
-update_networks = function() {
-  $.get('/networks', function(res) {
-    $.each(res['networks'], function(index, val) {
+update_hotspots = function() {
+  $.get('/hotspots', function(res) {
+    $.each(res['hotspots'], function(index, val) {
       add_marker.apply(this, val);
     });
   });

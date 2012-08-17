@@ -20,12 +20,12 @@ def about():
 
 @app.route('/hotspots')
 def get_hotspots():
-    networks = [
+    hotspots = [
         ['abc', 32.0833, 34.8000],
         ['def', 32.0800, 34.7960],
         ['ghi', 32.0840, 34.7930],
     ]
-    return jsonify(networks=networks)
+    return jsonify(hotspots=hotspots)
 
 
 @app.route('/hotspots/add', methods=['POST'])
