@@ -27,20 +27,17 @@ def about():
 
 @app.route('/hotspots')
 def get_hotspots():
-    hotspots = [
-        ['abc', 32.0833, 34.8000],
-        ['def', 32.0800, 34.7960],
-        ['ghi', 32.0840, 34.7930],
-    ]
+    from models.hotspot import Hotspot
+    hotspots = Hotspot.query.all()
     return jsonify(hotspots=hotspots)
 
 
 @app.route('/hotspots/add', methods=['POST'])
-def add_network():
-    fields = ['lat', 'lng', 'ssid', 'password']
-    vals = [request.form[k] for k in fields]
+def add_hotspot():
+    fields = ['ssid', 'password', 'lat', 'lng']
+    vals = [request.form.get(k) for k in fields]
     try:
-        print vals
+        return jsonify(vals=vals)
         #hotspot.create(*vals)
     except:
         return jsonify(res='err')
