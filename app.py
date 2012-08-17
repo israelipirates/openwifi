@@ -11,7 +11,7 @@ heroku = Heroku(app)
 # hack for local dev
 # see https://github.com/kennethreitz/flask-heroku/issues/8
 if 'DATABASE_URL' not in environ:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/openwifi.db'
 
 db.init_app(app)
 
