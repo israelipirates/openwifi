@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_heroku import Heroku
+from os import environ
 
 app = Flask(__name__)
 heroku = Heroku(app)
@@ -46,5 +47,5 @@ def robots():
     return res
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
