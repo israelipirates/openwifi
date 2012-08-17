@@ -3,8 +3,15 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask_heroku import Heroku
 from os import environ
 
+
 app = Flask(__name__)
 heroku = Heroku(app)
+
+# hack for local dev
+# see https://github.com/kennethreitz/flask-heroku/issues/8
+if 'DATABASE_URL' not in environ:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+
 db = SQLAlchemy(app)
 
 
