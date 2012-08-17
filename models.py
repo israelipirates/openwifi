@@ -1,6 +1,7 @@
 from datetime import datetime
+from flask.ext.sqlalchemy import SQLAlchemy
 
-from app import db
+db = SQLAlchemy()
 
 
 class Hotspot(db.Model):

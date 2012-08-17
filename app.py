@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, jsonify
-from flask.ext.sqlalchemy import SQLAlchemy
 from flask_heroku import Heroku
 from os import environ
+
+from models import db, Hotspot
 
 
 app = Flask(__name__)
@@ -12,7 +13,7 @@ heroku = Heroku(app)
 if 'DATABASE_URL' not in environ:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 
-db = SQLAlchemy(app)
+db.init_app(app)
 
 
 @app.route('/')
@@ -27,7 +28,6 @@ def about():
 
 @app.route('/hotspots')
 def get_hotspots():
-    from models.hotspot import Hotspot
     hotspots = Hotspot.query.all()
     return jsonify(hotspots=hotspots)
 
