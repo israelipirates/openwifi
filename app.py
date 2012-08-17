@@ -1,13 +1,9 @@
-import os
-
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import jsonify
-
-from models import hotspot
+from flask import Flask, render_template, request, jsonify
+from flask_heroku import Heroku
 
 app = Flask(__name__)
+heroku = Heroku(app)
+db = SQLAlchemy(app)
 
 
 @app.route('/')
