@@ -21,3 +21,14 @@ OpenWifi is built to be deployed on the Heroku platform. Follow the usual steps 
  2. `heroku addons:add heroku-postgresql:dev`
  3. `heroku pg:promote HEROKU_POSTGRESQL_<COLOR>`
  4. `git push heroku master`
+
+Database
+--------
+In either case database tables should be created via a Python interactive console (`python` locally or `heroku run python` on Heroku):
+
+```python
+from app import app
+from models import db
+with app.test_request_context():
+    db.create_all()
+```
