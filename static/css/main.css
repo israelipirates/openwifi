@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Carmela';
+    src: url('carmela.eot');
+    src: url('carmela.eot?#iefix') format('embedded-opentype'),
+         url('carmela.woff') format('woff'),
+         url('carmela.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     height: 100%;
 }
@@ -9,16 +19,32 @@ body {
     padding: 0;
 }
 
+span, p {
+    font-family: 'Carmela','Helvetica Neue',Helvetica,Arial,sans-serif;
+    background: rgba(0,0,0,0.7);
+    padding: 7px;
+}
+
 .canvas {
     height: 100%;
 }
 
-.overlay {
+.about {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 7px;
+    right: 7px;
     z-index: 100;
     color: #fff;
+    width: 20%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+    z-index: 100;
+    color: #fff;
+    width: 20%;
 }
 
 .modal { display: none; }
