@@ -21,7 +21,8 @@ body {
 
 span, p {
     font-family: 'Carmela','Helvetica Neue',Helvetica,Arial,sans-serif;
-    background: rgba(0,0,0,0.7);
+    background-color: #000;
+    background-color: rgba(0,0,0,0.8);
     padding: 7px;
 }
 
