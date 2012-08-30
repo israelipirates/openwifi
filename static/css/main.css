@@ -26,6 +26,11 @@ span, p {
     padding: 7px;
 }
 
+a { color: #ff6000; }
+a:hover { color: #c0ff00; }
+a:visited { color: #ffc000; }
+
+
 .canvas {
     height: 100%;
 }

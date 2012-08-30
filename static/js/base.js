@@ -1,3 +1,5 @@
+var MARKER_COLORS = [ 'ff00c0', '7200ff', '00bbff', 'ff0042', 'c0ff00', 'ffc000', 'ff6000'];
+
 $(document).ready(function() {
   init();
   update_hotspots();
