@@ -14,7 +14,13 @@ init = function() {
     },
     mapTypeControl: false,
     streetViewControl: false,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [{
+      stylers: [
+        { invert_lightness: true },
+        { hue: "#0091ff" }
+      ]
+    }]
   };
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 };

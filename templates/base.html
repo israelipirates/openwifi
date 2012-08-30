@@ -34,20 +34,8 @@
 </head>
 
 <body lang="en">
-  <div id="main" class="container" role="main">
-    <div class="span8 offset2">
-      <h1>ויפי-פתוח</h1>
-      <ul class="nav nav-tabs">
-        <li><a href="/">ראשי</a></li>
-        <li><a href="#">מפה</a></li>
-        <li><a href="#">חיפוש</a></li>
-        <li><a href="#">הוספה</a></li>
-        <li><a href="/about">אודות</a></li>
-      </ul>
-      {% block page_content %}
-      {% endblock %}
-      <p>פרוייקט זה מוגש בחסות <a href="http://israelipirates.org.il">מפלגת הפיראטים הישראלית</a>. אפליקציה זו בנויה מכלים חופשיים בלבד ומכבדת את פרטיותכם. מעוניינים לתרום קוד? שלחו לנו הצעות לשינויים ב<a href="https://github.com/israelipirates/openwifi">גיטהאב</a>.</p>
-    </div>
-  </div>
+  <div id="map_canvas" class="canvas"></div>
+  {% block page_content %}
+  {% endblock %}
 </body>
 </html>
