@@ -3,6 +3,7 @@ var MARKER_COLORS = [ 'ff00c0', '7200ff', '00bbff', 'ff0042', 'c0ff00', 'ffc000'
 $(document).ready(function() {
   init();
   update_hotspots();
+  add_static_markers();
   register_clicks();
 });
 
@@ -31,10 +32,8 @@ add_marker = function(ssid, password, lat, lng) {
   var marker = new google.maps.Marker({
     title: ssid,
     position: new google.maps.LatLng(lat, lng),
-    icon: {
-      path: google.maps.SymbolPath.CIRCLE,
-      scale: 7
-    },
+    icon: new google.maps.MarkerImage('/static/img/wifi.svg',
+      null, null, null, new google.maps.Size(36,36)),
     draggable: false,
     map: map
   });
@@ -56,6 +55,15 @@ update_hotspots = function() {
       console.log(ssid, password, lat, lng);
       add_marker(ssid, password, lat, lng);
     });
+  });
+};
+
+add_static_markers = function() {
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(32.2, 34.4),
+    icon: new google.maps.MarkerImage('/static/img/infested.png'),
+    draggable: false,
+    map: map
   });
 };
 
