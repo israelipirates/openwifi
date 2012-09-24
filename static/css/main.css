@@ -26,9 +26,9 @@ span, p {
     padding: 7px;
 }
 
-a { color: #ff6000; }
-a:hover { color: #c0ff00; }
-a:visited { color: #ffc000; }
+a.orange { color: #ff6000; }
+a.orange:hover { color: #c0ff00; }
+a.orange:visited { color: #ffc000; }
 
 
 .canvas {
