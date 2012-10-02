@@ -1,4 +1,4 @@
-var MARKER_COLORS = [ 'ff00c0', '7200ff', '00bbff', 'ff0042', 'c0ff00', 'ffc000', 'ff6000'];
+var MARKER_COLORS = [ 'blue', 'red', 'green', 'orange', 'pink', 'purple', 'yellow' ];
 
 $(document).ready(function() {
   init();
@@ -28,11 +28,15 @@ init = function() {
   map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 };
 
+random_choice = function(lst) {
+  return lst[Math.floor(Math.random() * lst.length)];
+};
+
 add_marker = function(ssid, password, lat, lng) {
   var marker = new google.maps.Marker({
     title: ssid,
     position: new google.maps.LatLng(lat, lng),
-    icon: new google.maps.MarkerImage('/static/img/wifi.svg',
+    icon: new google.maps.MarkerImage('/static/img/wifi_' + random_choice(MARKER_COLORS) + '.png',
       null, null, null, new google.maps.Size(36,36)),
     draggable: false,
     map: map
@@ -52,7 +56,6 @@ update_hotspots = function() {
       var lng = val['lng'];
       var ssid = val['ssid'];
       var password = val['password'];
-      console.log(ssid, password, lat, lng);
       add_marker(ssid, password, lat, lng);
     });
   });
